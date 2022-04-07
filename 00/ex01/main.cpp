@@ -1,7 +1,10 @@
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int main()
 {
+    int i;
+    PhoneBook   myphonebook;
     std::string str;
     std::cout << "\nWELCOME TO MYPHONEBOOK!\n\n ADD [add new contact]\n SEARCH [find contact]\n EXIT [close MyPhonebook]\n";
     while(1)
@@ -14,9 +17,14 @@ int main()
         {
 
         }
-        else if (str.compare("SEARCH") == 0)
+        else if (str == "SEARCH")
         {
-
+            i = 0;
+            while (i < 8)
+            {
+                myphonebook.getContact(i);
+                i++;
+            }
         }
     }
 }

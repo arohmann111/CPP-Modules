@@ -4,9 +4,9 @@
 #include "Contact.hpp"
 
 class PhoneBook {
-
     public:
+        void getContact(int id);
     private:
-    Contact[7];
+        Contact contacts[8];
     };
 #endif
