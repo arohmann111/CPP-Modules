@@ -5,8 +5,11 @@
 
 class PhoneBook {
     public:
-        void getContact(int id);
+        PhoneBook();
+        void print_contacts();
+        void add_contact(void);
     private:
-        Contact contacts[8];
+        int     _num;
+        Contact _contacts[8];
     };
 #endif

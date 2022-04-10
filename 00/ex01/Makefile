@@ -10,6 +10,7 @@ SRC =	main.cpp \
 		Contact.cpp \
 		Contact.hpp \
 		PhoneBook.cpp \
+		PhoneBook.hpp \
 
 all: $(NAME)
 
