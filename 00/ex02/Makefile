@@ -1,12 +1,14 @@
 CC = c++
 
-NAME = megaphone
+NAME = banking
 
 CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJDIR = ./obj/
 OBJECTS = $(OBJDIR)/*.o
-SRC =	megaphone.cpp
+SRC =	tests.cpp \
+		Account.hpp \
+		Account.cpp \
 
 all: $(NAME)
 

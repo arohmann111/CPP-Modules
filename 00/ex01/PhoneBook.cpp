@@ -24,13 +24,13 @@ void PhoneBook::print_contacts()
 
     if (this->_num > 0 )
     {
-        std::cout << "|     Index|First name| Last name|  Nickname|" << std::endl;
+        std::cout << "\n|     Index|First name| Last name|  Nickname|" << std::endl;
         for (int i = 0; i < this->_num; ++i)
         {
             std::cout << "|" << std::setw(10) << i;
             this->_contacts[i].print_contact();
         }
-        std::cout << "Enter id to see more: ";
+        std::cout << "\nEnter id to see more: ";
         std::cin.ignore();
 	    std::getline(std::cin, str);
         std::stringstream convert(str);

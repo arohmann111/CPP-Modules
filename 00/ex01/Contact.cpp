@@ -3,16 +3,20 @@
 void    Contact::new_contact()
 {
 	std::cout << "Name: ";
-    std::cin.ignore();
-	std::getline(std::cin, FirstName);
+	while (std::getline(std::cin, this->FirstName) && this->FirstName.empty())
+		std::cout << "Not a valid input!\n";
 	std::cout << "Last Name: ";
-	std::getline(std::cin, LastName);
+	while (std::getline(std::cin, this->LastName) && this->LastName.empty())
+		std::cout << "Not a valid input!\n";
 	std::cout << "Nickname: ";
-	std::getline(std::cin, NickName);
+	while (std::getline(std::cin, this->NickName) && this->NickName.empty())
+		std::cout << "Not a valid input!\n";
 	std::cout << "Phone: ";
-	std::getline(std::cin, PhoneNumber);
+	while (std::getline(std::cin, this->PhoneNumber) && this->PhoneNumber.empty())
+		std::cout << "Not a valid input!\n";
 	std::cout << "Your darkest secret: ";
-    std::getline(std::cin, DarkestSecret);
+	while (std::getline(std::cin, this->DarkestSecret) && this->DarkestSecret.empty())
+		std::cout << "Not a valid input!\n";
 }
 
  void    Contact::print_contact()
