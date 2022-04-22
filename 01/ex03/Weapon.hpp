@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 14:00:18 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/21 14:42:57 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/04/22 12:05:43 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Weapon {
 		Weapon() {}
 		Weapon(std::string name);
 		~Weapon() {}
-		const std::string getType(void);
+		std::string getType(void) const;
 		void	setType(std::string type);
 	private:
 		std::string _type;

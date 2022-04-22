@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 14:06:39 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/22 12:05:51 by arohmann         ###   ########.fr       */
+/*   Created: 2022/04/22 11:27:26 by arohmann          #+#    #+#             */
+/*   Updated: 2022/04/22 13:05:23 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include <iostream>
 
-Weapon::Weapon(std::string name)
+int my_replace(char **av)
 {
-	this->_type = name;
+    std::string filename = av[1];
+    std::string search = av[2];
+    std::string replace = av[3];
 }
 
-std::string	Weapon::getType(void) const
+int main(int ac, char **av)
 {
-	const std::string& typeREF = this->_type;
-	return (typeREF);
-}
-
-void	Weapon::setType(std::string type)
-{
-	this->_type = type;
+    if (ac != 4)
+        return (EXIT_FAILURE);
+    if (my_replace(av))
+        return(EXIT_FAILURE);
+    return (EXIT_SUCCESS);
 }
