@@ -1,6 +1,6 @@
 CC = c++
 
-NAME = HIBRAIN
+NAME = SED
 
 CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
