@@ -2,11 +2,12 @@ CC = c++
 
 NAME = HIBRAIN
 
-CFLAGS = -std=c++98 -Wall -Werror -Wextra
+CFLAGS = -std=c++98 #-Wall -Werror -Wextra
 
 OBJDIR = ./obj/
 OBJECTS = $(OBJDIR)/*.o
 SRC =	main.cpp \
+		Harl.cpp \
 
 all: $(NAME)
 
