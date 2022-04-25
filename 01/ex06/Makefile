@@ -1,6 +1,6 @@
 CC = c++
 
-NAME = HARL
+NAME = harlFilter
 
 CFLAGS = -std=c++98 -Wall -Werror -Wextra
 

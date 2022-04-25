@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 13:13:46 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/25 19:45:43 by arohmann         ###   ########.fr       */
+/*   Created: 2022/04/22 13:15:19 by arohmann          #+#    #+#             */
+/*   Updated: 2022/04/25 16:20:48 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+#include <string>
 #include <iostream>
-#include "Harl.hpp"
 
-int	main(void)
-{
-	Harl karen;
-
-	std::cout << "---------------------" << std::endl;
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
-	std::cout << "---------------------" << std::endl;
-	karen.complain("");
-	karen.complain("debug");
-	karen.complain("INFNO");
-	return (0);
-}
+class Harl {
+    public:
+        Harl() {}
+        ~Harl() {}
+        void complain(std::string level);
+    private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);
+};

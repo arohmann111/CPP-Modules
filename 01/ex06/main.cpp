@@ -5,26 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 13:13:46 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/25 19:45:43 by arohmann         ###   ########.fr       */
+/*   Created: 2022/04/25 19:52:58 by arohmann          #+#    #+#             */
+/*   Updated: 2022/04/25 20:10:47 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Harl.hpp"
 
-int	main(void)
+int main(int ac, char **av)
 {
-	Harl karen;
-
-	std::cout << "---------------------" << std::endl;
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
-	std::cout << "---------------------" << std::endl;
-	karen.complain("");
-	karen.complain("debug");
-	karen.complain("INFNO");
-	return (0);
+    Harl karen;
+    std::string level;
+    
+    if (ac != 2)
+    {
+        std::cout << "Not enough" 
+        << "arguments! => ./harlfilter <level>"
+        << std::endl;
+        return (1);
+    }
+    
+    level = av[1];
+    karen.complain(level);
+    return (0);
 }
