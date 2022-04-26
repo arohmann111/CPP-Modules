@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 13:15:15 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/25 19:49:30 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/04/26 10:40:26 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void Harl::complain(std::string level)
 	for (int i = 0; i < 4; i++)
 	{
 		if (complains[i] == level)
-        {
-            (this->*(funcPtr[i]))();
-            break;
-        }
+		{
+			(this->*(funcPtr[i]))();
+			break;
+		}
 	}
 	
 }
@@ -39,7 +39,7 @@ void Harl::info(void)
 
 void Harl::warning(void)
 {
-	std::cout << "[WARNING]\nI think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::cout;
+	std::cout << "[WARNING]\nI think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
 void Harl::error(void)

@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 13:58:53 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/21 17:51:55 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/04/26 10:51:33 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-
-/* int main(void)
-{
-	Weapon weapon;
-	weapon.setType("sword");
-	std::cout << weapon.getType() << std::endl;
-}
- */
 
 int main()
 {
