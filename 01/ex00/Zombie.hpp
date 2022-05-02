@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:32:36 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/20 17:32:37 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:56:02 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <string>
 #include <iostream>
-#include <iomanip>
 
 class Zombie
 {

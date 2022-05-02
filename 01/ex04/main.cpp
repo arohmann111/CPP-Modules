@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 11:27:26 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/22 19:16:01 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:54:15 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ std::string my_replace(std::string search, std::string replace, std::string line
 
 int main(int ac, char **av)
 {
+	if (ac != 4)
+	{
+		std::cout << "Wrong Number of input => <filename> <search> <replace>" << std::endl;
+		return (EXIT_FAILURE);
+	}
+	
 	std::string filename = av[1];
 	std::string search = av[2];
 	std::string replace = av[3];
@@ -40,11 +46,6 @@ int main(int ac, char **av)
 	std::ofstream ofs;
 	std::ifstream ifs;
 	
-	if (ac != 4)
-	{
-		std::cout << "Wrong Number of input => <filename> <search> <replace>" << std::endl;
-		return (EXIT_FAILURE);
-	}
 	ifs.open(filename);
 	if (ifs.is_open())
 	{

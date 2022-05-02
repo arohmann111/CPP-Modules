@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 13:58:53 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/26 10:51:33 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:53:18 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int main()
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
-		system("leaks UN_VIOLENCE");
 	}
 	return 0;
 }

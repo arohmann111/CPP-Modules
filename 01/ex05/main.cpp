@@ -6,14 +6,14 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 13:13:46 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/25 19:45:43 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:57:38 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Harl.hpp"
 
-int	main(void)
+int	main()
 {
 	Harl karen;
 

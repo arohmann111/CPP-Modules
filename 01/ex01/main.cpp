@@ -6,13 +6,13 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:32:42 by arohmann          #+#    #+#             */
-/*   Updated: 2022/04/21 12:53:03 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:54:51 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+int	main()
 {
 	Zombie *a = zombieHorde(7, "hey");
 	int i = 0;
@@ -22,5 +22,5 @@ int	main(void)
 		++i;
 	}
 	delete[] a;
-	return (EXIT_SUCCESS);
+	return (0);
 }
