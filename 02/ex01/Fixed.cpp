@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:16:35 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/02 18:45:11 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:56:02 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@ Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->_value = 0;
+}
+
+Fixed::Fixed(const int val)
+{
+	this->_value = val;
+}
+
+Fixed::Fixed(const float val)
+{
+	this->_value = val;
 }
 
 Fixed::Fixed(Fixed &other)
