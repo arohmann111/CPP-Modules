@@ -6,8 +6,8 @@ CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJDIR = ./obj
 OBJECTS = $(OBJDIR)/*.o
-SRC =	main.cpp \
-		Fixed.cpp \
+SRC =	Fixed.cpp \
+		main.cpp \
 
 all: $(NAME)
 
