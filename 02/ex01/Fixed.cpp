@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:16:35 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/04 14:31:43 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:07:11 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ Fixed::~Fixed()
 Fixed::Fixed(const int val)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_value = (val << Fixed::_rawBit);
+	this->_value = val << this->_rawBit;
 }
 
 Fixed::Fixed(const float val)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_value =  roundf(val * (1 << Fixed::_rawBit));
+	this->_value =  roundf(val * (1 << this->_rawBit));
 }
 
 /*
@@ -62,10 +62,11 @@ void Fixed::setRawBits(int const raw)
 }
 
 /* Operators */
-void Fixed::operator=(const Fixed &other)
+Fixed &Fixed::operator=(const Fixed &other)
 {
+	this->_value = other._value;
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_value = other.getRawBits();
+	return *this;
 }
 
 /* nonmember operators */
@@ -84,6 +85,6 @@ float Fixed::toFloat() const
 
 int Fixed::toInt() const
 {
-	return (this->_value / (1 << this->_rawBit));
+	return (this->_value >> this->_rawBit);
 }
 
