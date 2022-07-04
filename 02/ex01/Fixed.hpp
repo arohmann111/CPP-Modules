@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:00:05 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/03 19:39:25 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/04 11:31:24 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ private:
 	int _value;
 };
 
-std::ostream &operator<<(std::ostream& os, Fixed const &fix);
+std::ostream &operator<<(std::ostream& os, Fixed const &fixed);
 
 #endif

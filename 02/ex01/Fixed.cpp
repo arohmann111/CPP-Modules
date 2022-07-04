@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:16:35 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/03 19:48:41 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/04 14:31:43 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,11 @@ Fixed::Fixed(const Fixed &other)
 /*Accessors */
 int Fixed::getRawBits(void) const
 {
-	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->_value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 }
 
@@ -70,19 +68,21 @@ void Fixed::operator=(const Fixed &other)
 	this->_value = other.getRawBits();
 }
 
-std::ostream &operator<<(std::ostream &os, const Fixed &fix){
-	os << fix.toFloat();
+/* nonmember operators */
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+{
+	os << fixed.toFloat();
 	return os;
 }
 
-// /*-- Menber functions --*/
+/* Member functions */
 
-float Fixed::toFloat( void ) const{
-	
+float Fixed::toFloat() const
+{
 	return ((float)this->_value / (float)(1 << this->_rawBit));
 }
 
-int Fixed::toInt( void ) const
+int Fixed::toInt() const
 {
 	return (this->_value / (1 << this->_rawBit));
 }
