@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:16:35 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/04 17:12:15 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/04 21:30:56 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ Fixed::Fixed()
 Fixed::~Fixed() { }
 
 /*
+	A copy constructor is a member function that initializes an 
+	object using another object of the same class.
+*/
+Fixed::Fixed(const Fixed &other)
+{
+	*this = other;
+}
+
+/*
 	The left-shift operator causes the bits in shift-expression to be shifted 
 	to the left by the number of positions specified by additive-expression
 */
@@ -31,19 +40,10 @@ Fixed::Fixed(const int val)
 
 Fixed::Fixed(const float val)
 {
-	this->_value =  roundf(val * (1 << this->_rawBit));
+	this->_value = roundf(val * (1 << this->_rawBit));
 }
 
-/*
-	A copy constructor is a member function that initializes an 
-	object using another object of the same class.
-*/
-Fixed::Fixed(const Fixed &other)
-{
-	*this = other;
-}
-
-/*Accessors */
+// /*Accessors */
 int Fixed::getRawBits(void) const
 {
 	return this->_value;
@@ -57,117 +57,103 @@ void Fixed::setRawBits(int const raw)
 /* Operators */
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	this->_value = other._value;
+	this->_value = other.getRawBits();
 	return *this;
+}
+
+/* comparison operators */
+bool Fixed::operator<(const Fixed &other) const
+{
+	return (this->getRawBits() < other.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed &other) const
+{
+	return (this->getRawBits() > other.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &other) const
+{
+	return (this->getRawBits() <= other.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &other) const
+{
+	return (this->getRawBits() >= other.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed &other) const
+{
+	return (this->getRawBits() == other.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &other) const
+{
+	return (this->getRawBits() != other.getRawBits());
 }
 
 /* arithmetic operators */
 Fixed Fixed::operator+(const Fixed &other) const
 {
 	Fixed ret;
-	ret.setRawBits(this->getRawBits() + other.getRawBits());
-	return (ret);
-}
-
-Fixed Fixed::operator-(const Fixed &other) const
-{
-	Fixed ret;
-	ret.setRawBits(this->getRawBits() - other.getRawBits());
+	ret.setRawBits(this->_value + other.getRawBits());
 	return (ret);
 }
 
 Fixed Fixed::operator*(const Fixed &other) const
 {
 	Fixed ret;
-	ret.setRawBits(this->getRawBits() * other.getRawBits());
+	ret.setRawBits((this->_value * other.getRawBits()) /(1 << 8));
 	return (ret);
 }
 
-Fixed Fixed::operator/(const Fixed &other) const
+Fixed Fixed::operator-(const Fixed &other)const
 {
 	Fixed ret;
-	ret.setRawBits(this->getRawBits() / other.getRawBits());
+	ret.setRawBits(this->_value - other.getRawBits());
 	return (ret);
 }
 
-/* comparison operators */
-bool Fixed::operator<(const Fixed &other) const
-{
-	return (this->_value < other._value);
-}
-
-bool Fixed::operator>(const Fixed &other) const
-{
-	return (this->_value > other._value);
-}
-
-bool Fixed::operator<=(const Fixed &other) const
-{
-	return (this->_value <= other._value);
-}
-
-bool Fixed::operator>=(const Fixed &other) const
-{
-	return (this->_value >= other._value);
-}
-
-bool Fixed::operator==(const Fixed &other) const
-{
-	return (this->_value == other._value);
-}
-
-bool Fixed::operator!=(const Fixed &other) const
-{
-	return (this->_value != other._value);
+Fixed Fixed::operator/(const Fixed &other)const {
+	Fixed ret;
+	ret.setRawBits(this->_value / other.getRawBits());
+	return (ret);
 }
 
 /* incremennt && decrement */
 Fixed &Fixed::operator++()
 {
 	this->_value++;
-	return *this;
+	return (*this);
 }
 
 Fixed &Fixed::operator--()
 {
 	this->_value--;
-	return *this;
+	return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
-	Fixed	tmp = *this;
+	Fixed tmp = *this;
 	++*this;
 	return tmp;
 }
 
 Fixed Fixed::operator--(int)
 {
-	Fixed	tmp = *this;
+	Fixed tmp = *this;
 	--*this;
 	return tmp;
 }
 
-/* nonmember operators */
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
-{
-	os << fixed.toFloat();
-	return os;
-}
-
 /* Member functions */
-
-float Fixed::toFloat() const
-{
-	return ((float)this->_value / (float)(1 << this->_rawBit));
-}
-
-int Fixed::toInt() const
-{
-	return (this->_value >> this->_rawBit);
-}
-
 Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	return ((a > b) ? b : a);
+}
+
+const Fixed &Fixed::min (const Fixed &a, const Fixed &b)
 {
 	return ((a > b) ? b : a);
 }
@@ -177,12 +163,24 @@ Fixed &Fixed::max(Fixed &a, Fixed &b)
 	return ((a > b) ? a : b);
 }
 
-const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
-{
-	return ((a > b) ? b : a);
-}
-
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-	return ((a > b) ? a : b);
+	return ((a > b) ? a : b);	
+}
+
+float Fixed::toFloat() const
+{
+	return ((float)this->_value / (1 << this->_rawBit));
+}
+
+int Fixed::toInt() const
+{
+	return (this->_value / (1 << this->_rawBit));
+}
+
+// /* nonmember operators */
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+{
+	os << fixed.toFloat();
+	return os;
 }
