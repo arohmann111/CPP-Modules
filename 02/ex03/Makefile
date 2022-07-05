@@ -6,7 +6,7 @@ CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 OBJDIR = ./obj
 OBJECTS = $(OBJDIR)/*.o
-SRC =	Fixed.cpp Point.cpp\
+SRC =	Fixed.cpp Point.cpp Bsp.cpp\
 		main.cpp \
 
 all: $(NAME)
