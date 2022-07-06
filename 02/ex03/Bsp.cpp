@@ -1,9 +1,9 @@
 #include "Point.hpp"
 
-float sign(const Point point, const Point pt1, const Point pt2)
+float sign(const Point p0, const Point pt1, const Point pt2)
 {
-	return ((point.getX() - pt2.getX()) * (pt1.getY() - pt2.getY())
-			- (pt1.getX() - pt2.getY()) * (point.getY() - pt2.getY()));
+	return ((p0.getX().toFloat() - pt2.getX().toFloat()) * (pt1.getY().toFloat() - pt2.getY().toFloat())
+			- (pt1.getX().toFloat() - pt2.getY().toFloat()) * (p0.getY().toFloat() - pt2.getY().toFloat()));
 }
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
@@ -14,8 +14,8 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 	d2 = sign(point, b, c);
 	d3 = sign(point, c, a);
 
-	hasNeg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-	hasPos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+	hasNeg = (d1 <= 0) || (d2 <= 0) || (d3 <= 0);
+	hasPos = (d1 >= 0) || (d2 >= 0) || (d3 >= 0);
 	
 	return !(hasNeg && hasPos);
 }

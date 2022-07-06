@@ -24,12 +24,12 @@ Point &Point::operator=(const Point &other)
 }
 
 /*member functions*/
-float Point::getX() const
+const Fixed &Point::getX() const
 {
-	return this->_x.toFloat();
+	return this->_x;
 }
 
-float Point::getY() const
+const Fixed &Point::getY() const
 {
-	return this->_y.toFloat();
+	return this->_y;
 }

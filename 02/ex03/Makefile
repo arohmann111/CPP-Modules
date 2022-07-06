@@ -1,6 +1,6 @@
 CC = c++
 
-NAME = Point
+NAME = bsp
 
 CFLAGS = -std=c++98 -Wall -Werror -Wextra
 

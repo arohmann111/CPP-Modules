@@ -13,12 +13,12 @@ public:
 	Point &operator=(const Point &other);
 	~Point();
 
-	float getX() const;
-	float getY() const;
+	const Fixed &getX() const;
+	const Fixed &getY() const;
 
 private:
-	const Fixed _x;
-	const Fixed _y;
+	Fixed _x;
+	Fixed _y;
 };
 
 

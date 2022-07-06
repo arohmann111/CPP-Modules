@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:16:35 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/04 21:30:56 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:36:46 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Fixed::Fixed(const int val)
 
 Fixed::Fixed(const float val)
 {
-	this->_value = roundf(val * (1 << this->_rawBit));
+	this->_value = roundf(val * (float)(1 << this->_rawBit));
 }
 
 // /*Accessors */
@@ -57,7 +57,9 @@ void Fixed::setRawBits(int const raw)
 /* Operators */
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	this->_value = other.getRawBits();
+	if (this == &other)
+		return *this;
+	this->_value = other._value;
 	return *this;
 }
 
@@ -93,31 +95,24 @@ bool Fixed::operator!=(const Fixed &other) const
 }
 
 /* arithmetic operators */
-Fixed Fixed::operator+(const Fixed &other) const
+float Fixed::operator+(const Fixed &other) const
 {
-	Fixed ret;
-	ret.setRawBits(this->_value + other.getRawBits());
-	return (ret);
+	return this->toFloat() + other.toFloat();
 }
 
-Fixed Fixed::operator*(const Fixed &other) const
+float Fixed::operator-(const Fixed &other)const
 {
-	Fixed ret;
-	ret.setRawBits((this->_value * other.getRawBits()) /(1 << 8));
-	return (ret);
+	return this->toFloat() - other.toFloat();
 }
 
-Fixed Fixed::operator-(const Fixed &other)const
+float Fixed::operator*(const Fixed &other) const
 {
-	Fixed ret;
-	ret.setRawBits(this->_value - other.getRawBits());
-	return (ret);
+		return this->toFloat() * other.toFloat();
 }
 
-Fixed Fixed::operator/(const Fixed &other)const {
-	Fixed ret;
-	ret.setRawBits(this->_value / other.getRawBits());
-	return (ret);
+float Fixed::operator/(const Fixed &other)const 
+{
+	return this->toFloat() / other.toFloat();
 }
 
 /* incremennt && decrement */
@@ -165,17 +160,17 @@ Fixed &Fixed::max(Fixed &a, Fixed &b)
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-	return ((a > b) ? a : b);	
+	return ((a > b) ? a : b);
 }
 
 float Fixed::toFloat() const
 {
-	return ((float)this->_value / (1 << this->_rawBit));
+	return ((float)this->_value / (float)(1 << this->_rawBit));
 }
 
 int Fixed::toInt() const
 {
-	return (this->_value / (1 << this->_rawBit));
+	return ((float)this->_value / (float)(1 << this->_rawBit));
 }
 
 // /* nonmember operators */
