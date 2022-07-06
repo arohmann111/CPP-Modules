@@ -18,8 +18,8 @@ Point::Point(const float i, const float j) : _x(i), _y(j) {}
 
 Point &Point::operator=(const Point &other)
 {
-	if (this == &other)
-		return (*this);
+	this->_x = other.getY();
+	this->_y = other.getX();
 	return *this;
 }
 
