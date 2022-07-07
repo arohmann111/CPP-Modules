@@ -6,23 +6,31 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:15:22 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 16:44:51 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:53:35 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() {}
+Animal::Animal()
+{
+	std::cout << "Animal default constructor" << std::endl;
+}
 
 Animal::Animal(Animal &other)
 {
+	std::cout << "Animal copy constructor" << std::endl;
 	*this = other;
 }
 
-Animal::~Animal() {}
+Animal::~Animal()
+{
+	std::cout << "Animal destructor" << std::endl;
+}
 
 Animal &Animal::operator=(const Animal &other)
 {
+	std::cout << "Animal assignment operator" << std::endl;
 	this->_type = other._type;
 	return *this;
 }
