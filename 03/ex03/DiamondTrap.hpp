@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:59:56 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 13:04:40 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:12:31 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 	DiamondTrap();
 	DiamondTrap(std::string s);
 	~DiamondTrap();
+	DiamondTrap &operator=(const DiamondTrap &other);
 	void attack(const std::string &target);
 	void whoAmI();
 protected:

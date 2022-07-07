@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:06:48 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 13:06:35 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:11:46 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ DiamondTrap::DiamondTrap(std::string s) : ClapTrap(s + "_clap_name"), FragTrap(s
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "◇ DiamondTrap default destructor called" << std::endl;
+}
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
+{
+	std::cout << "◇ DiamondTrap copy assignment operator called" << std::endl;
+	this->_name = other._name;
+	this->_hits = other._hits;
+	this->_energy = other._energy;
+	this->_damage = other._damage;
+	return *this;
 }
 
 // /*member functions*/
