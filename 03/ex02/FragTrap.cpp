@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 17:16:35 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 09:43:22 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/07 09:44:59 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 /* constructors & destructor */
-ScavTrap::ScavTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;
+	std::cout << "FragTrap default constructor called" << std::endl;
 	this->_name = "noname";
 	this->_hits = 100;
-	this->_energy = 50;
-	this->_damage = 20;
+	this->_energy = 100;
+	this->_damage = 30;
 }
 
-ScavTrap::ScavTrap(std::string s) : ClapTrap(s)
+FragTrap::FragTrap(std::string s) : ClapTrap(s)
 {
-	std::cout << "ScavTrap constructor with string is called" << std::endl;
+	std::cout << "FragTrap constructor with string is called" << std::endl;
 	this->_name = s;
 	this->_hits = 100;
-	this->_energy = 50;
-	this->_damage = 20;
+	this->_energy = 100;
+	this->_damage = 30;
 }
 
-ScavTrap::ScavTrap(ScavTrap &other) : ClapTrap(other)
+FragTrap::FragTrap(FragTrap &other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = other;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "ScavTrap default destructor called" << std::endl;
+	std::cout << "FragTrap default destructor called" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+FragTrap &FragTrap::operator=(const FragTrap &other)
 {
-	std::cout << "ScavTrap copy assignment operator called" << std::endl;
+	std::cout << " FragTrap copy assignment operator called" << std::endl;
 	this->_name = other._name;
 	this->_hits = other._hits;
 	this->_energy = other._energy;
@@ -53,44 +53,44 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 }
 
 /*member functions*/
-void ScavTrap::attack(const std::string &target)
+void FragTrap::attack(const std::string &target)
 {
 	if (this->_energy > 0 && this->_hits > 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " attacks " << target
+		std::cout << "FragTrap " << this->_name << " attacks " << target
 			<< ", causing " << this->_damage << " points of damage!" << std::endl;
 		this->_energy--;
 	}
 	else
-		std::cout << "ScavTrap " << this->_name << " is not able to repair themself!" << std::endl;
+		std::cout << "FragTrap " << this->_name << " is not able to repair themself!" << std::endl;
 
 }
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys()
 {
-	std::cout << "ScavTrap" << this->_name << "is now in gate keeper mode" << std::endl;
+	std::cout << "FragTrap" << this->_name << "wants to high five!" << std::endl;
 }
 
-void ScavTrap::takeDamage(unsigned int amount)
+void FragTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hits > (int) amount)
 		this->_hits -= amount;
 	else if (this->_hits > 0)
 		this->_hits = 0;
-	std::cout << "ScavTrap " << this->_name << " takes " << amount
+	std::cout << "FragTrap " << this->_name << " takes " << amount
 		<< " points of damage!" << std::endl;
 }
 
-void ScavTrap::beRepaired(unsigned int amount)
+void FragTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energy > 0 && this->_hits > 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " takes " << amount
+		std::cout << "FragTrap " << this->_name << " takes " << amount
 		<< " points to repair themself!" << std::endl;
 		this->_energy--;
 		this->_hits += amount;
 	}
 	else
-		std::cout << "ScavTrap " << this->_name << " is not able to repair themself!" << std::endl;
+		std::cout << "FragTrap " << this->_name << " is not able to repair themself!" << std::endl;
 }
 
