@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:08:46 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 15:58:16 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:43:54 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 		Animal	&operator=(const Animal &other);
 		
 		std::string	getType() const;
-		void		makeSound() const;
+		virtual void		makeSound() const;
 	protected:
 		std::string _type;
 };

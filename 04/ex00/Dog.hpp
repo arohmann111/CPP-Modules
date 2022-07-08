@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:20:39 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 15:44:08 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:48:44 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ class Dog : public Animal
 		Dog();
 		Dog(Dog &other);
 		~Dog();
+		
 		Dog &operator=(const Dog &other);
-		void makeSound();
+
+		void	makeSound() const;
 	protected:
 };
 

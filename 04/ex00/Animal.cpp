@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:15:22 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 16:53:35 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:46:59 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,4 @@ std::string Animal::getType() const
 }
 
 void Animal::makeSound() const
-{
-	std::cout << "*animal sounds*" << std::endl;
-}
+{}

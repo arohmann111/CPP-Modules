@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:27:45 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 16:57:00 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:45:49 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Dog &Dog::operator=(const Dog &other)
 	return *this;
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
 	std::cout << "wuff wuff !!!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:36 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 16:57:11 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:49:56 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat(Cat &other)
 
 Cat::~Cat()
 {
-	std::cout << "Animal destructor" << std::endl;
+	std::cout << "Cat destructor" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other)
@@ -36,7 +36,7 @@ Cat &Cat::operator=(const Cat &other)
 	return *this;
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "miauuu..." << std::endl;
 }

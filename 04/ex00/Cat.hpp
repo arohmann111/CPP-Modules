@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:32:29 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 15:53:56 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:45:31 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Cat : public Animal
 
 		Cat	&operator=(const Cat &other);
 
-		void	makeSound();
+		void	makeSound() const;
 	protected:
 };
 

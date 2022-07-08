@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:33:59 by arohmann          #+#    #+#             */
-/*   Updated: 2022/07/07 16:59:54 by arohmann         ###   ########.fr       */
+/*   Updated: 2022/07/08 10:49:15 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main()
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
+	j->makeSound();
 	meta->makeSound();
 	return 0;
 }
