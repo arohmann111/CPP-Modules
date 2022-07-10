@@ -7,6 +7,7 @@ CFLAGS = -std=c++98 -Wall -Werror -Wextra
 OBJDIR = ./obj
 OBJECTS = $(OBJDIR)/*.o
 SRC =	AMateria.cpp \
+		MateriaSource.cpp \
 		Character.cpp \
 		Cure.cpp \
 		Ice.cpp \

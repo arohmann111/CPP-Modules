@@ -3,6 +3,9 @@
 AMateria::AMateria()
 {}
 
+AMateria::~AMateria()
+{}
+
 AMateria::AMateria(std::string const &type)
 {
 	this->_type = type;
@@ -22,4 +25,9 @@ AMateria &AMateria::operator=(const AMateria &other)
 const std::string &AMateria::getType() const
 {
 	return (this->_type);
+}
+
+void AMateria::use(ICharacter &target)
+{
+	(void)target;
 }
