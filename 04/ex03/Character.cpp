@@ -31,7 +31,6 @@ Character &Character::operator=(const Character &other)
 	}
 	for (int i = 0; i < 4; i++)
 		this->_invent[i] = other._invent[i];
-	this->_name = other._name;
 	return (*this);
 }
 

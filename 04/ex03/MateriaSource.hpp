@@ -15,6 +15,8 @@ class MateriaSource : public IMateriaSource
 
 		AMateria	*createMateria(std::string const &type);
 		void		learnMateria(AMateria *materia);
+		AMateria	*getMateria(int index) const;
+
 	protected:
 		AMateria *_memory[4];
 };

@@ -18,7 +18,7 @@ Cure &Cure::operator=(const Cure other)
 	return (*this);
 }
 
-AMateria *Cure::clone()
+AMateria *Cure::clone() const
 {
 	return (new Cure);
 }
