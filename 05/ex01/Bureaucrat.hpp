@@ -4,6 +4,7 @@
 #include <iostream>
 #include <exception>
 #include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {
@@ -29,7 +30,7 @@ class Bureaucrat
 		int				getGrade() const;
 		void			increment();
 		void			decrement();
-		void			signForm(const Form &f) const;
+		void			signForm(Form &f);
 	private:
 		const std::string _name;
 		int	_grade;
