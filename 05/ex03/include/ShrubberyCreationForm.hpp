@@ -17,7 +17,7 @@ class ShrubberyCreationForm : public Form
 
 		void		action() const;
 		std::string	getTarget() const;
-		Form		*create(std::string target);
+		static Form		*create(std::string target);
 	private:
 		std::string	_target;
 };

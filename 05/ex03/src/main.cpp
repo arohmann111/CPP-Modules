@@ -5,26 +5,30 @@
 #include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/Intern.hpp"
 
 int main()
 {
-	Bureaucrat jaeskim("jaeskim", 10);
+	Bureaucrat jay("jay", 10);
+	Intern a;
 
 	try
 	{
-		jaeskim.increment();
-		std::cout << jaeskim << std::endl;
-		jaeskim.increment();
-		std::cout << jaeskim << std::endl;
+		jay.increment();
+		std::cout << jay << std::endl;
+		jay.increment();
+		a.makeForm("robotomy request", "jay");
+		std::cout << jay << std::endl;
 		ShrubberyCreationForm formA("test");
 		ShrubberyCreationForm formB("test1");
 		RobotomyRequestForm formC("tes");
-		jaeskim.signForm(formA);
-		jaeskim.decrement();
-		jaeskim.signForm(formB);
-		jaeskim.executeForm(formB);
-		jaeskim.executeForm(formA);
-		jaeskim.executeForm(formC);
+		jay.signForm(formC);
+		jay.signForm(formA);
+		jay.decrement();
+		jay.signForm(formB);
+		jay.executeForm(formB);
+		jay.executeForm(formA);
+		jay.executeForm(formC);
 		std::cout << formA << std::endl;
 		std::cout << formB << std::endl;
 		std::cout << formC << std::endl;
