@@ -1,28 +1,29 @@
-NAME = convert
-
 CC = c++
+
+NAME = convert
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = ./obj
+OBJECTS = $(OBJDIR)/*.o
 SRC =	main.cpp \
 		Convert.cpp \
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+$(NAME): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(NAME)
 
-$(OBJS): $(SRC)
+$(OBJECTS): $(SRC)
 	$(CC) -c $(CFLAGS) $(SRC)
-	rm -rf $(OBJDIR); mkdir $(OBJDIR)
-	mv *.o $(OBJDIR)
+	@rm -rf $(OBJDIR); mkdir $(OBJDIR)
+	@mv *.o $(OBJDIR)
 
 clean:
-	rm -rf $(OBJS)
+	rm -f $(OBJECTS)
 	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean all
+re: fclean $(NAME)

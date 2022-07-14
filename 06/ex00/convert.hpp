@@ -1,23 +1,30 @@
 #ifndef CONVERT_HPP
 #define CONVERT_HPP
 
-#include <ostream>
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+#include <float.h>
 
 class Convert
 {
-    public:
-        Convert();
-        Convert(std::string s);
-        Convert(const Convert &other);
-        Convert();
+	public:
+		Convert();
+		Convert(std::string s) : _s(s) {}
+		Convert(const Convert &other);
+		~Convert() {}
 
-        Convert &operator=(const Convert &other);
+		Convert &operator=(const Convert &other);
 
-    private;
-    char    _c;
-    int     _i;
-    float   _f;
-    double  _d;
+		void	scalarStr();
+		std::string getInputType(const std::string s);
+
+		void	printChar(char c);
+		void	printInt(int i);
+		void	printFloat(float f);
+		void	printDouble(double d);
+	private:
+		std::string		_s;
 };
 
 #endif
