@@ -15,16 +15,15 @@ Convert &Convert::operator=(const Convert &other)
 
 void Convert::scalarStr()
 {
-	// char *str = this->_s.c_str();
 	std::string type = this->getInputType(this->_s);
 	if (type == "char")
 		this->printChar(this->_s[0]);
 	else if (type == "int")
-		this->printInt(atoi(_s.c_str()));
+		this->printInt(static_cast<int>(atoi(_s.c_str())));
 	else if (type == "float")
-		this->printFloat(static_cast<float>(atof(_s)));
+		this->printFloat(static_cast<float>(atof(_s.c_str())));
 	else if (type == "double")
-		this->printDouble(_s);
+		this->printDouble(static_cast<double>(std::strtod(_s.c_str(), NULL)));
 	else if (type == "not-dis")
 		std::cout << "";
 }
