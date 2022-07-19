@@ -14,15 +14,9 @@ class Array
 				return ("Not allocated!");
 			}
 		};
-		class OutOfRangeException : std::exception {
-			virtual const char *what() const throw()
-			{
-				return ("Index out of Range!");
-			}
-		};
 		Array(){
 			_size = 0;
-			_arr = new T[0];
+			_arr = NULL;
 		}
 		~Array(){ 
 			delete[] this->_arr;
@@ -30,6 +24,8 @@ class Array
 		Array(unsigned int n){
 			_size = n;
 			_arr = new T[n];
+			if (_arr == NULL)
+				throw NotAllocatedException();
 		}
 		Array(const Array &other){
 			_size = other._size;
@@ -46,7 +42,7 @@ class Array
 		}
 		T &operator[](int i) {
 			if (i < 0 || static_cast<unsigned int>(i) >= this->_size)
-				throw OutOfRangeException();
+				throw std::out_of_range("Out of Range!");
 			return this->_arr[i];
 		}
 		void	size() const {
