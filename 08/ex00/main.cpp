@@ -27,7 +27,7 @@ int main()
 		std::array<int, 6> arr;
 		arr.fill(5);
 		std::cout << "Element " << occur <<" found at position : " ;
-		std::cout << easyfind(arr, occur) << " (counting from zero) \n" ;
+		std::cout << easyfind(arr, 7) << " (counting from zero) \n" ;
 	}
 	catch (std::exception &e)
 	{
